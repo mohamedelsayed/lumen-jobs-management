@@ -1,0 +1,47 @@
+version: "3.3"
+services:
+  db-container:
+    image: mysql:5.7
+    restart: always
+    container_name: db-container
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "jobs_management"
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - jobs_management
+    volumes:
+        - ./mysql:/var/lib/mysql
+  phpmyadmin-container:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-container
+    links:
+      - db-container
+    environment:
+      PMA_HOST: db-container
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
+    networks:
+      - jobs_management
+  app-container:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    image: "jobs_management"
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - jobs_management
+    restart: always
+
+networks:
+  jobs_management:
+    driver: bridge

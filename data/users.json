@@ -1,0 +1,11 @@
+[{
+    "name": "Manager",
+    "email": "manager@test.com",
+    "password": "manager",
+    "is_manager": true
+}, {
+    "name": "Regular",
+    "email": "regular@test.com",
+    "password": "regular",
+    "is_manager": false
+}]
