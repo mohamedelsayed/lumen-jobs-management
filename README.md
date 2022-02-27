@@ -44,13 +44,13 @@ docker exec -i 10e96e9d1bdd mysql -uroot -proot zielvest < zielvest.sql
 
 http://localhost:8081/
 
-# tests:
-## to run tests:
+## tests:
+### to run tests:
 ./vendor/phpunit/phpunit/phpunit tests/
 
-# api documentation:
-## Auth:
+## api documentation:
+### Auth:
 https://documenter.getpostman.com/view/4081658/UVkqquPE
 
-## Jobs
+### Jobs
 https://documenter.getpostman.com/view/4081658/UVkqquTV
