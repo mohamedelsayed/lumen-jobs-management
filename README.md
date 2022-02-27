@@ -44,3 +44,10 @@ docker exec -i 10e96e9d1bdd mysql -uroot -proot zielvest < zielvest.sql
 http://localhost:8081/
 
 
+
+# api documentation:
+## Auth:
+https://documenter.getpostman.com/view/4081658/UVkqquPE
+
+## Jobs
+https://documenter.getpostman.com/view/4081658/UVkqquTV

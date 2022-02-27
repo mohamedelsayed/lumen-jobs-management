@@ -17,12 +17,12 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 $router->group(
-    ['prefix' => 'api/v1', 'middleware' => []],
+    ['prefix' => 'api/v1', 'middleware' => ['XSSProtection']],
     function ($router) {
         $router->post('login', 'AuthController@authenticate');
     }
 );
-$router->group(['prefix' => 'api/v1', 'middleware' => ['auth']], function ($router) {
+$router->group(['prefix' => 'api/v1', 'middleware' => ['XSSProtection', 'auth']], function ($router) {
     $router->get('jobs', 'JobsController@index');
     $router->get('jobs/{id}', 'JobsController@show');
     $router->post('jobs', 'JobsController@store');
