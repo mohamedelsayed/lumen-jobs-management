@@ -103,7 +103,7 @@ class JobsController extends Controller
         $user = $request->user;
         $job = Job::find($id);
         if ($job) {
-            if ($user->is_manager || $user->id == $job->user_id) {
+            if ($user->id == $job->user_id) {
                 $job->title = $request->input('title');
                 $job->description = $request->input('description');
                 $job->user_id = $user->id;
@@ -124,7 +124,7 @@ class JobsController extends Controller
         $user = $request->user;
         $job = Job::find($id);
         if ($job) {
-            if ($user->is_manager || $user->id == $job->user_id) {
+            if ($user->id == $job->user_id) {
                 $job->delete();
                 $data['status'] = 'success';
                 $data['statusCode'] = Response::HTTP_OK;
