@@ -39,7 +39,6 @@ class ShowTest extends TestCase
     {
         $user1 = User::factory()->create(['is_manager' => true]);
         $user2 = User::factory()->create(['is_manager' => false]);
-
         $job = Job::factory()->create(['user_id' => $user2->id]);
         $data = [];
         $apiUrl = $this->getApiUrl();

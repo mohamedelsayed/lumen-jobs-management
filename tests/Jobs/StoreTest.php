@@ -46,7 +46,6 @@ class StoreTest extends TestCase
     public function testUserCanStoreFail()
     {
         $user = User::factory()->create(['is_manager' => false]);
-        $faker = Factory::create();
         $data = [
         ];
         $apiUrl = $this->getApiUrl();
@@ -61,5 +60,6 @@ class StoreTest extends TestCase
         $response->seeJson([
             "status" => 'fail',
         ]);
+        $user->delete();
      }
 }
