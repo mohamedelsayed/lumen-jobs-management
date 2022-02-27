@@ -7,7 +7,7 @@ use TestCase;
 
 class LoginTest extends TestCase
 {
-    public function testLoginSuccess()
+    public function testUserCanLoginSuccess()
     {
         $password = '123456a!A';
         $user = User::factory()->create([
@@ -29,7 +29,7 @@ class LoginTest extends TestCase
         ]);
         $user->delete();
     }
-    public function testLoginFail()
+    public function testUserCanLoginFail()
     {
         $password = '123456a!A';
         $user = User::factory()->create([

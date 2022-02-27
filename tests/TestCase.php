@@ -11,11 +11,25 @@ abstract class TestCase extends BaseTestCase
      */
     public function createApplication()
     {
-        return require __DIR__.'/../bootstrap/app.php';
+        return require __DIR__ . '/../bootstrap/app.php';
     }
 
     public function getApiUrl()
     {
         return config("app.url");
+    }
+
+    protected function loginAsUser($user = null)
+    {
+        if ($user) {
+            $apiToken = $user->api_token;
+            if ($apiToken) {
+                $headers = [
+                    'Authorization' => 'Bearer ' . $apiToken,
+                ];
+                return $headers;
+            }
+        }
+        return [];
     }
 }

@@ -14,9 +14,7 @@ class XSSProtection
         array_walk_recursive($input, function (&$input, $key) {
             $input = filter_var($input, FILTER_SANITIZE_STRING);
         });
-
         $request->merge($input);
-
         return $next($request);
     }
 }
