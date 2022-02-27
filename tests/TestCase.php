@@ -13,4 +13,9 @@ abstract class TestCase extends BaseTestCase
     {
         return require __DIR__.'/../bootstrap/app.php';
     }
+
+    public function getApiUrl()
+    {
+        return config("app.url");
+    }
 }
