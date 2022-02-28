@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Jobs;
-use Illuminate\Contracts\Queue\ShouldQueue;
+
+// use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\User;
 use App\Notifications\RegularUserJobCreated;
 
-class NotifyManagers extends Job implements ShouldQueue
+class NotifyManagers extends Job
 {
+
     protected $data;
     /**
      * Create a new job instance.
@@ -25,9 +28,9 @@ class NotifyManagers extends Job implements ShouldQueue
     public function handle()
     {
         $data = $this->data;
-        $users = User::where('is_manager',true)->get();
+        $users = User::where('is_manager', true)->get();
         if ($users) {
-            foreach ($users as $user){
+            foreach ($users as $user) {
                 $user->notify(new RegularUserJobCreated($data));
             }
         }

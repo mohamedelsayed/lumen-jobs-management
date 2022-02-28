@@ -12,6 +12,7 @@ use App\Models\Job;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\RegularUserJobCreated;
+use Illuminate\Support\Facades\Queue;
 
 class JobsController extends Controller
 {
@@ -80,7 +81,7 @@ class JobsController extends Controller
             $data['statusCode'] = Response::HTTP_OK;
             //notify managers every time a job is created. This notification should not block any HTTP request
             if (!$user->is_manager) {
-                dispatch(new NotifyManagers($job));
+                Queue::push(new NotifyManagers($job));
             }
         }
         return $this->response($data);
