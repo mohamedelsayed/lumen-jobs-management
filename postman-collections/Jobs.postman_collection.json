@@ -76,7 +76,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "czZHSDF6M2U1bEV4alRQUWNMRzUwRE9ocTRMU29YeVpTSDJUVFBrbQ==",
+							"value": "TlNXVjV3a0NScjBYc2dKMXM5cnhWQTh1VjAwUXNWc01yUjdqZjNiYg==",
 							"type": "string"
 						}
 					]
@@ -149,7 +149,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "TlNXVjV3a0NScjBYc2dKMXM5cnhWQTh1VjAwUXNWc01yUjdqZjNiYg==",
+							"value": "OHdubHpJSXFjbFQyQktTMldDWkMyYjc4TmFPOFNOcnRObVlBeldQZg==",
 							"type": "string"
 						}
 					]
@@ -158,7 +158,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"Job title 3\",\n    \"description\": \"Job description 3\"\n}",
+					"raw": "{\n    \"title\": \"Job title 8\",\n    \"description\": \"Job description 8\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

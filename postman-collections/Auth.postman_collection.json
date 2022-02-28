@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"manager@test.com\",\n    \"password\": \"manager\"\n}",
+					"raw": "{\n    \"email\": \"regular@mohamedelsayed.net\",\n    \"password\": \"regular\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
