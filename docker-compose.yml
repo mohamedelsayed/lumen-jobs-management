@@ -34,6 +34,8 @@ services:
       context: .
       dockerfile: .docker/Dockerfile
     image: "jobs_management"
+    links:
+      - db-container
     depends_on:
       - db-container
     ports:
@@ -52,7 +54,6 @@ services:
     container_name: laravel-queue
     depends_on:
       - app-container
-      - db-container
     volumes:
       - .:/var/www/html
     environment:
