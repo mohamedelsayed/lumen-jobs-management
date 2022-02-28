@@ -5,7 +5,7 @@
 - it exposes ports 3306, 8080, 8081, & it must be not used
 - copy .env.example to .env & set smtp mail settings "MAIL_HOST, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD"
 - to test api in postman you can import postman-collections exists in repo 
-- there are two users one manager & one regular that system initiated with it in this file [a data/users.json](data/users.json), you can use it to login & take api_token to make AUTHORIZATION with it rest api
+- there are two users one manager & one regular that system initiated with it in this file [data/users.json](data/users.json), you can use it to login & take api_token to make AUTHORIZATION with it rest api
 ## To run system:
 sudo docker-compose build
 sudo docker-compose up -d
