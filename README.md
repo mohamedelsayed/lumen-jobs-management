@@ -16,8 +16,8 @@ http://localhost:8081/
 
 ## tests:
 ### to run tests:
+docker exec -it lumen-jobs-management_app-container_1 bash
 ./vendor/phpunit/phpunit/phpunit tests/
-
 ## api documentation:
 ### Auth:
 https://documenter.getpostman.com/view/4081658/UVkqquPE
