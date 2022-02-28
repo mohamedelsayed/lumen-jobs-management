@@ -8,7 +8,7 @@ if [ "$env" != "local" ]; then
 fi
 if [ "$role" = "app" ]; then
     echo "Running composer install "
-    (cd /var/www/html && composer install && chmod 777  ./storage/ -R && php /var/www/html/artisan migrate)
+    (cd /var/www/html && composer install && chmod o+w ./storage/ -R && mkdir -p storage/framework/cache && chmod o+w -R storage/framework/cache && php /var/www/html/artisan migrate)
     exec apache2-foreground
 elif [ "$role" = "queue" ]; then
     echo "Running the queue..."
