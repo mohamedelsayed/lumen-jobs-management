@@ -34,6 +34,8 @@ services:
       context: .
       dockerfile: .docker/Dockerfile
     image: "jobs_management"
+    depends_on:
+      - db-container
     ports:
       - "8080:80"
     volumes:
@@ -41,7 +43,24 @@ services:
     networks:
       - jobs_management
     restart: always
-
+    environment:
+      APP_ENV: local
+      CONTAINER_ROLE: app
+  
+  queue:
+    image: "jobs_management"
+    container_name: laravel-queue
+    depends_on:
+      - app-container
+      - db-container
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_ENV: local
+      CONTAINER_ROLE: queue   
+    restart: always
+    networks:
+      - jobs_management
 networks:
   jobs_management:
     driver: bridge

@@ -7,8 +7,11 @@ use App\Http\Requests\Jobs\IndexRequest;
 use App\Http\Requests\Jobs\ShowRequest;
 use App\Http\Requests\Jobs\StoreRequest;
 use App\Http\Requests\Jobs\UpdateRequest;
+use App\Jobs\NotifyManagers;
 use App\Models\Job;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\RegularUserJobCreated;
 
 class JobsController extends Controller
 {
@@ -75,11 +78,14 @@ class JobsController extends Controller
             $data['status'] = 'success';
             $data['job'] = $job;
             $data['statusCode'] = Response::HTTP_OK;
-            //notify the manager every time a job is created. This notification should not block any HTTP request
+            //notify managers every time a job is created. This notification should not block any HTTP request
+            if (!$user->is_manager) {
+                dispatch(new NotifyManagers($job));
+            }
         }
         return $this->response($data);
     }
-    
+
     public function show(ShowRequest $request, $id)
     {
         $data['status'] = 'fail';

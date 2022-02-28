@@ -1,11 +1,11 @@
 [{
-    "name": "Manager",
-    "email": "manager@test.com",
+    "name": "Manager User",
+    "email": "manager@mohamedelsayed.net",
     "password": "manager",
     "is_manager": true
 }, {
-    "name": "Regular",
-    "email": "regular@test.com",
+    "name": "Regular User",
+    "email": "regular@mohamedelsayed.net",
     "password": "regular",
     "is_manager": false
 }]
