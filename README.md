@@ -7,7 +7,7 @@
 - to test api in postman you can import postman-collections exists in repo 
 - there are two users one manager & one regular that system initiated with it in this file [data/users.json](data/users.json), you can use it to login & take **api_token** to make **AUTHORIZATION** in jobs api
 ## To run system:
-docker-compose build  <br />
+docker-compose build <br />
 docker-compose up -d
 ## to access api:
 http://localhost:8080/
@@ -16,7 +16,7 @@ http://localhost:8081/
 
 ## tests:
 ### to run tests:
-docker exec -it lumen-jobs-management_app-container_1 bash
+docker exec -it lumen-jobs-management_app-container_1 bash <br />
 ./vendor/phpunit/phpunit/phpunit tests/
 ## api documentation:
 ### Auth:
